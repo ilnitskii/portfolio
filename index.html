@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио достижений</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { brand: { 50: '#f0f9ff', 100: '#e0f2fe', 500: '#0ea5e9', 600: '#0284c7', 900: '#0c4a6e' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Стили для плавного скрытия/показа модального окна */
+        #imageModal { transition: opacity 0.2s ease-in-out; }
+        .modal-active { opacity: 1; pointer-events: auto; }
+        .modal-inactive { opacity: 0; pointer-events: none; }
+        
+        /* Скрытие скролла при открытом модальном окне */
+        body.modal-open { overflow: hidden; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-100 selection:text-brand-900">
+
+    <!-- Навигация -->
+    <nav class="sticky top-0 z-40 w-full bg-white/80 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 font-bold text-xl tracking-tight text-slate-900">
+                    Портфолио
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4 text-sm font-medium text-slate-600">
+                        <a href="#ds" class="hover:text-brand-600 transition-colors">Data Science</a>
+                        <a href="#certificates" class="hover:text-brand-600 transition-colors">Сертификаты</a>
+                        <a href="#rosatom" class="hover:text-brand-600 transition-colors">Росатом</a>
+                        <a href="#lang" class="hover:text-brand-600 transition-colors">Иностранные языки</a>
+                        <a href="#university" class="hover:text-brand-600 transition-colors">Университет</a>
+                        <a href="#rso" class="hover:text-brand-600 transition-colors">РСО</a>
+                        <a href="#school" class="hover:text-brand-600 transition-colors">Школа</a>
+                    </div>
+                </div>
+                <!-- Мобильное меню (упрощенное) -->
+                <div class="md:hidden flex items-center">
+                    <span class="text-xs text-slate-400">Скролл вниз ↓</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Шапка (Hero) -->
+    <header class="bg-white border-b border-slate-200 py-16 sm:py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+                Евгений Ильницкий
+            </h1>
+            <p class="text-lg text-slate-600 max-w-2xl mb-8">
+            Аналитик данных с инженерным бэкграундом.
+            В портфолио — проекты по рекомендательным системам,
+            анализу пользовательских данных, машинному обучению, а также опыт в смежных отраслях.
+            </p>
+            <div class="flex flex-wrap gap-4">
+
+                <!-- GitHub -->
+                <a href="https://github.com/ilnitskii"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium rounded-md text-white bg-slate-900 hover:bg-slate-800 transition-colors">
+                    <i data-lucide="github" class="w-4 h-4 mr-2"></i>
+                    GitHub
+                </a>
+
+                <!-- Резюме -->
+                <a href="files/resume.pdf"
+                target="_blank"
+                class="inline-flex items-center justify-center px-5 py-2.5 border border-slate-300 text-sm font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50 transition-colors">
+                    <i data-lucide="file-text" class="w-4 h-4 mr-2"></i>
+                    Резюме
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:ilnitskiski@yandex.ru"
+                class="inline-flex items-center justify-center px-5 py-2.5 border border-slate-300 text-sm font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50 transition-colors">
+                    <i data-lucide="mail" class="w-4 h-4 mr-2"></i>
+                    ilnitskiski@yandex.ru
+                </a>
+
+                <!-- Телефон -->
+                <a href="tel:+79163551918"
+                class="inline-flex items-center justify-center px-5 py-2.5 border border-slate-300 text-sm font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50 transition-colors">
+                    <i data-lucide="phone" class="w-4 h-4 mr-2"></i>
+                    +7 916 355-19-18
+                </a>
+
+                <!-- Telegram -->
+                <a href="https://t.me/ilnitskiii"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center px-5 py-2.5 border border-slate-300 text-sm font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50 transition-colors">
+                    <i data-lucide="send" class="w-4 h-4 mr-2"></i>
+                    t.me/ilnitskiii
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+        
+
+        <!-- DATA SCIENCE -->
+        <section id="ds" class="scroll-mt-20">
+        
+            <div class="flex items-center gap-3 mb-8 border-b border-slate-200 pb-4">
+                <div class="p-2 bg-brand-100 rounded-lg text-brand-600">
+                    <i data-lucide="database" class="w-6 h-6"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-900">
+                    Data Science (Projects)
+                </h2>
+            </div>
+        
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        
+                <!-- OZON RECSYS -->
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+        
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/Ozon-E-CUP.pdf')">
+        
+                        <img src="images/Ozon-E-CUP.pdf" class="w-full h-full object-cover">
+        
+                        <div class="absolute top-3 left-3 bg-white/90 text-xs font-semibold px-3 py-1 rounded-lg shadow">
+                            Top 18 / 432
+                        </div>
+        
+                        <div class="absolute top-3 right-3 bg-slate-900 text-white text-xs px-2 py-1 rounded">
+                            RecSys
+                        </div>
+        
+                        <div
+                            class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in"
+                                class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    </div>
+        
+                    <div class="p-5 flex-1 flex flex-col">
+        
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">
+                            E-commerce Recommendation System
+                        </h3>
+        
+                        <p class="text-sm text-slate-600 mb-3 flex-1">
+                            Разработка рекомендательной системы для ранжирования товаров категории Apparel.
+                        </p>
+        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Python</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">RecSys</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">CatBoost</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Ranking</span>
+                        </div>
+        
+                        <div class="mb-4 mt-auto">
+                            <button onclick="toggleDetails(this,'ds-details-1')"
+                                class="text-sm font-medium text-brand-600 hover:text-brand-800 flex items-center">
+                                Подробнее
+                                <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                            </button>
+        
+                            <div id="ds-details-1"
+                                class="hidden mt-3 text-sm text-slate-600 border-t border-slate-100 pt-3 space-y-2">
+        
+                                <p><strong>Data:</strong> более 38 ГБ (actions, orders, items)</p>
+                                <p><strong>Pipeline:</strong> candidate generation → ranking → offline evaluation</p>
+                                <p><strong>Метрикаv nDCG:</strong> 0.083</p>
+        
+                            </div>
+                        </div>
+        
+                        <a href="https://github.com/ilnitskii/ozon_recsys_2025" target="_blank"
+                            class="text-sm font-medium text-slate-900 hover:text-brand-600 flex items-center mt-2">
+                            GitHub Repository
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+        
+                    </div>
+                </div>
+        
+        
+                <!-- LLM AGENT -->
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+        
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group"
+                        onclick="openModal('images/maps-ai-agent.png')">
+        
+                        <img src="images/maps-ai-agent.png" class="w-full h-full object-cover">
+        
+                        <div class="absolute top-3 right-3 bg-slate-900 text-white text-xs px-2 py-1 rounded">
+                            LLM
+                        </div>
+        
+                        <div
+                            class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8"></i>
+                        </div>
+                    </div>
+        
+                    <div class="p-5 flex flex-col flex-1">
+        
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">
+                            LLM Agent for Business Search Relevance
+                        </h3>
+        
+                        <p class="text-sm text-slate-600 mb-3 flex-1">
+                            Agent-based система для классификации релевантности бизнеса в сложных поисковых запросах. Пример запроса: "Уютное кафе с живым джазом"
+                        </p>
+        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Python</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">LangGraph</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">LLM Agents</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Ranking</span>
+                        </div>
+        
+                        <div class="mb-4 mt-auto">
+                            <button onclick="toggleDetails(this,'ds-details-2')"
+                                class="text-sm font-medium text-brand-600 hover:text-brand-800 flex items-center">
+                                Подробнее
+                                <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                            </button>
+        
+                            <div id="ds-details-2"
+                                class="hidden mt-3 text-sm text-slate-600 border-t border-slate-100 pt-3 space-y-2">
+        
+                                <p><strong>Agent loop:</strong> analysis → search → context update → classification</p>
+        
+                            </div>
+                        </div>
+        
+                        <a href="https://github.com/ilnitskii/maps_ai_agent" target="_blank"
+                            class="text-sm font-medium text-slate-900 hover:text-brand-600 flex items-center mt-2">
+                            GitHub Repository
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+        
+                    </div>
+                </div>
+        
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+        
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group"
+                        onclick="openModal('images/karaoke.JPG')">
+        
+                        <img src="images/karaoke.JPG" class="w-full h-full object-cover">
+        
+                        <div class="absolute top-3 right-3 bg-slate-900 text-white text-xs px-2 py-1 rounded">
+                            Commercial project
+                        </div>
+        
+                        <div
+                            class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8"></i>
+                        </div>
+                    </div>
+        
+                    <div class="p-5 flex flex-col flex-1">
+        
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">
+                            Karaoke Generator
+                        </h3>
+        
+                        <p class="text-sm text-slate-600 mb-3 flex-1">
+                            Коммерческое desktop-приложение для автоматической генерации караоке из аудиотреков.
+
+                            ML-pipeline выполняет выделение вокала, синхронизацию текста песни с аудио и генерацию караоке-видео с таймингом строк.
+                        </p>
+        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Python</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">ML</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Demucs</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">forced alignment</span>
+                        </div>
+        
+                        <div class="mb-4 mt-auto">
+                            <button onclick="toggleDetails(this,'ds-details-3')"
+                                class="text-sm font-medium text-brand-600 hover:text-brand-800 flex items-center">
+                                Подробнее
+                                <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                            </button>
+        
+                            <div id="ds-details-3"
+                                class="hidden mt-3 text-sm text-slate-600 border-t border-slate-100 pt-3 space-y-2">
+        
+                                <p><strong>Как работает:</strong></p> 
+                                <p>• выделение вокала из аудиотрека (source separation)</p>
+                                <p>• выравнивание текста песни и аудио</p>
+                                <p>• генерация временных меток для строк</p>
+                                <p>• автоматическая генерация караоке-видео</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- TOOL CALLING -->
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+        
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group"
+                        onclick="openModal('images/speech-toolcalling.png')">
+        
+                        <img src="images/speech-toolcalling.png" class="w-full h-full object-cover">
+        
+                        <div class="absolute top-3 right-3 bg-slate-900 text-white text-xs px-2 py-1 rounded">
+                            LLM
+                        </div>
+        
+                        <div
+                            class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8"></i>
+                        </div>
+                    </div>
+        
+                    <div class="p-5 flex flex-col flex-1">
+        
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">
+                            LLM Tool Calling Assistant
+                        </h3>
+        
+                        <p class="text-sm text-slate-600 mb-3 flex-1">
+                            Pipeline для автоматического вызова инструментов LLM-ассистентом.
+                        </p>
+        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Python</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Gemma</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Tool Calling</span>
+                        </div>
+        
+                        <div class="mb-4 mt-auto">
+                            <button onclick="toggleDetails(this,'ds-details-4')"
+                                class="text-sm font-medium text-brand-600 hover:text-brand-800 flex items-center">
+                                Подробнее
+                                <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                            </button>
+        
+                            <div id="ds-details-4"
+                                class="hidden mt-3 text-sm text-slate-600 border-t border-slate-100 pt-3 space-y-2">
+        
+                                <p><strong>Accuracy:</strong> tool detection 94%</p>
+                                <p><strong>Success rate:</strong> 65%</p>
+        
+                            </div>
+                        </div>
+        
+                        <a href="https://github.com/ilnitskii/speech-toolcalling" target="_blank"
+                            class="text-sm font-medium text-slate-900 hover:text-brand-600 flex items-center mt-2">
+                            GitHub Repository
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+        
+                    </div>
+                
+                
+                
+                </div>
+        
+                <!-- COMPUTER VISION -->
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+        
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/segmentation.png')">
+        
+                        <img src="images/segmentation.png" class="w-full h-full object-cover">
+        
+                        <div class="absolute top-3 right-3 bg-slate-900 text-white text-xs px-2 py-1 rounded">
+                            CV
+                        </div>
+        
+                        <div
+                            class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8"></i>
+                        </div>
+                    </div>
+        
+                    <div class="p-5 flex flex-col flex-1">
+        
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">
+                            Building Segmentation
+                        </h3>
+        
+                        <p class="text-sm text-slate-600 mb-3 flex-1">
+                            Semantic segmentation зданий на аэрофотоснимках.
+                        </p>
+        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Python</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">PyTorch</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">U-Net</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Computer Vision</span>
+                        </div>
+        
+                        <div class="mb-4 mt-auto">
+                            <button onclick="toggleDetails(this,'ds-details-5')"
+                                class="text-sm font-medium text-brand-600 hover:text-brand-800 flex items-center">
+                                Подробнее
+                                <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                            </button>
+        
+                            <div id="ds-details-5"
+                                class="hidden mt-3 text-sm text-slate-600 border-t border-slate-100 pt-3 space-y-2">
+        
+                                <p><strong>Architecture:</strong> U-Net + ResNet-34 encoder</p>
+                                <p><strong>Dataset:</strong> Inria Aerial Image Labeling Dataset</p>
+        
+                            </div>
+                        </div>
+        
+                        <a href="https://github.com/ilnitskii/geodata_dls" target="_blank"
+                            class="text-sm font-medium text-slate-900 hover:text-brand-600 flex items-center mt-2">
+                            GitHub Repository
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+        
+                    </div>
+                </div>
+                <!-- CHURN ANALYSIS -->
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+        
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/dep.png')">
+        
+                        <img src="images/dep.png" class="w-full h-full object-cover">
+        
+                        <div class="absolute top-3 right-3 bg-slate-900 text-white text-xs px-2 py-1 rounded">
+                            Analytics
+                        </div>
+        
+                        <div
+                            class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8"></i>
+                        </div>
+                    </div>
+        
+                    <div class="p-5 flex flex-col flex-1">
+
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">
+                            Telecom Customer Churn Analysis
+                        </h3>
+
+                        <p class="text-sm text-slate-600 mb-3 flex-1">
+                            Аналитический проект по прогнозированию оттока клиентов телеком-оператора 
+                            и разработке экономически обоснованной стратегии удержания.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Python</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">EDA</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">CatBoost</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">SHAP</span>
+                        </div>
+
+                        <div class="mb-4 mt-auto">
+                            <button onclick="toggleDetails(this,'ds-details-churn')"
+                                class="text-sm font-medium text-brand-600 hover:text-brand-800 flex items-center">
+                                Подробнее
+                                <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                            </button>
+
+                            <div id="ds-details-churn"
+                                class="hidden mt-3 text-sm text-slate-600 border-t border-slate-100 pt-3 space-y-2">
+
+                                <p><strong>Анализ данных:</strong> выявлены ключевые драйверы оттока — высокий риск в первые 1–3 месяца, контракты month-to-month и пользователи Fiber Optic.</p>
+
+                                <p><strong>Моделирование:</strong> обучена модель CatBoost для прогнозирования вероятности оттока. Метрика качества ROC-AUC = 0.84.</p>
+
+                                <p><strong>Бизнес-решение:</strong> рассчитан оптимальный порог вероятности для запуска retention-кампании и предложена стратегия удержания клиентов.</p>
+
+                            </div>
+                    </div>   
+                    <a href="https://github.com/ilnitskii/churn_analysis/" target="_blank"
+                            class="text-sm font-medium text-slate-900 hover:text-brand-600 flex items-center mt-2">
+                            GitHub Repository
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
+                    </a>     
+                </div>
+            </div>
+        </section>
+        <!-- Сертификаты -->
+        <section id="certificates" class="scroll-mt-20 mt-16">
+            <div class="flex items-center gap-3 mb-8 border-b border-slate-200 pb-4">
+                <div class="p-2 bg-brand-100 rounded-lg text-brand-600">
+                    <i data-lucide="award" class="w-6 h-6"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-900">Сертификаты</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/cert/DLS.pdf')">
+                        <img src="images/cert/DLS.pdf" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Deep Learning School (МФТИ)</h3>
+                        <p class="text-sm text-slate-600 mb-4 flex-1">
+                            Диплом 1 степени в рамках курса "Глубокое обучение" по нейронным сетям и компьютерному зрению
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Python</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Scikit-learn</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">PyTorch</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">CNN</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">GAN</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">CV</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/cert/LLM-Scaling.pdf')">
+                        <img src="images/cert/LLM-Scaling.pdf" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">LLM Scaling Week</h3>
+                        <p class="text-sm text-slate-600 mb-4 flex-1">
+                            Интенсив Школы анализа данных Яндекса.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">PyTorch</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Triton</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">GPU</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/cert/AB-Week.pdf')">
+                        <img src="images/cert/AB-Week.pdf" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Yandex A/B Week</h3>
+                        <p class="text-sm text-slate-600 mb-4 flex-1">
+                            Интенсив Школы анализа данных Яндекса.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">SciPy</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Numpy</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Pandas</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">A/B test</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Теория Вероятности</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Мат Статистика</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/cert/CodeRun.pdf')">
+                        <img src="images/cert/CodeRun.pdf" class="w-full h-full object-cover">
+                        <div class="absolute top-3 left-3 bg-white/90 text-xs font-semibold px-3 py-1 rounded-lg shadow">
+                            Top 191 / 2000
+                        </div>
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">CodeRun III BOOST Challange</h3>
+                        <p class="text-sm text-slate-600 mb-4 flex-1">
+                            Открытый контест от Яндекса по алгоритмам и структурам данных.
+                        </p>
+                        <div class="mt-auto text-sm text-slate-600 border-t border-slate-100 pt-3 space-y-1">
+                            <p><strong>Результат:</strong> 191 место из более 2000 участников</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/cert/Yandex-ML.PDF')">
+                        <img src="images/cert/Yandex-ML.PDF" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Yandex Тренировки: ML</h3>
+                        <p class="text-sm text-slate-600 mb-4 flex-1">
+                            Yandex Интенсив по треку ML: Reinforcement Learning.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Gymnasium</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Numpy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/bus.PDF')">
+                        <img src="images/bus.pdf" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Инженерная бизнес-школа НИЯУ МИФИ</h3>
+                        <p class="text-sm text-slate-600 mb-4 flex-1">
+                            Программа по экономике, финансам и анализу бизнес-процессов 
+                            при поддержке компаний Deloitte, Bain & Company и EY.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Финансы</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Экономика бизнеса</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Управление проектами</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- СЕКЦИЯ: РОСАТОМ -->
+        <section id="rosatom" class="scroll-mt-20">
+            <div class="flex items-center gap-3 mb-8 border-b border-slate-200 pb-4">
+                <div class="p-2 bg-slate-100 rounded-lg text-slate-700">
+                    <i data-lucide="atom" class="w-6 h-6"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-900">Росатом</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Карточка -->
+                 <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group"
+                        onclick="openModal('images/raek.jpg')">
+
+                        <img src="images/raek.jpg" alt="РАЭК ПНР" class="w-full h-full object-cover">
+
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    </div>
+
+                    <div class="p-5 flex flex-col flex-1">
+
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">
+                            Расчетно-аналитический комплекс ПНР
+                        </h3>
+
+                        <p class="text-sm text-slate-600 mb-3 flex-1">
+                            Разработка и интеграция системы анализа расчетных и технологических данных для сопровождения пусконаладочных работ.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">SimInTech (MatLab)</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Python</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Data Analysis</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Statistical Processing</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Data Validation</span>
+                        </div>
+
+                        <div class="mb-4 mt-auto">
+                            <button onclick="toggleDetails(this,'raek-details')"
+                                    class="text-sm font-medium text-brand-600 hover:text-brand-800 flex items-center">
+                                Подробнее
+                                <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                            </button>
+
+                            <div id="raek-details"
+                                class="hidden mt-3 text-sm text-slate-600 border-t border-slate-100 pt-3 space-y-2">
+
+                                <p><strong>Задачи:</strong> анализ больших массивов инженерных и модельных данных, статистическая обработка результатов моделирования, выявление отклонений между расчетными и фактическими показателями.</p>
+
+                                <p><strong>Разработка:</strong> автоматизация анализа и валидации данных на Python, контроль корректности расчетов и подготовка аналитических отчетов.</p>
+
+                                <p><strong>Результат:</strong> автоматизирована проверка расчетных данных, сокращено время аналитической обработки и повышено качество выявления ошибок.</p>
+
+                            </div>
+                        </div>
+
+                        <a href="https://atech.ru/services/dev/raek/#section1"
+                        target="_blank"
+                        class="text-sm font-medium text-slate-900 hover:text-brand-600 flex items-center mt-2">
+                            Подробнее о комплексе
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/rosatom/Znak_rosatom.png')">
+                        <img src="images/rosatom/Znak_rosatom.png" alt="Грамота" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Нагрудной знак ГК "Росатом"</h3>
+                        <p class="text-sm text-slate-600 flex-1">За вклад в развитие отрядов атомной отрасли.</p>
+                    </div>
+                </div>
+                <!-- Карточка -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/rosatom/gramota_rosatom.pdf')">
+                        <img src="images/rosatom/gramota_rosatom.PDF" alt="Грамота" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Почетная грамота ГК "Росатом"</h3>
+                        <p class="text-sm text-slate-600 flex-1">За большие заслуги в области развития отрядов атомной отрасли и качественное выполнение заданий на объектах капитального строительства.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- СЕКЦИЯ: Иностранные языки -->
+        <section id="lang" class="scroll-mt-20">
+            <div class="flex items-center gap-3 mb-8 border-b border-slate-200 pb-4">
+                <div class="p-2 bg-slate-100 rounded-lg text-slate-700">
+                    <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-900">Иностранные языки</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/eng.pdf')">
+                        <img src="images/eng.pdf" alt="Диплом" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                        <div class="absolute top-3 right-3 bg-slate-900 text-white text-xs px-2 py-1 rounded">
+                            English
+                        </div>
+                    </div>
+                    
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Технический английский язык</h3>
+                        <p class="text-sm text-slate-600 flex-1">
+                            <strong>Курс:</strong> технический переводчик</p> 
+                        <p class="text-sm text-slate-600 flex-1">
+                            <strong>Сертификат:</strong> с отличием</p> 
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/ling.pdf')">
+                        <img src="images/ling.pdf" alt="Диплом" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                        <div class="absolute top-3 right-3 bg-slate-900 text-white text-xs px-2 py-1 rounded">
+                            English
+                        </div>
+                    </div>
+                    
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Английский язык</h3>
+                        <p class="text-sm text-slate-600 flex-1">
+                            <strong>Уровень:</strong> C1</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('')">
+                        <img src="" alt="" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                        <div class="absolute top-3 right-3 bg-slate-900 text-white text-xs px-2 py-1 rounded">
+                            Deutch
+                        </div>
+                    </div>
+                    
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Немецкий язык</h3>
+                        <p class="text-sm text-slate-600 flex-1">
+                            <strong>Уровень:</strong> B2</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- СЕКЦИЯ: УНИВЕРСИТЕТ -->
+        <section id="university" class="scroll-mt-20">
+            <div class="flex items-center gap-3 mb-8 border-b border-slate-200 pb-4">
+                <div class="p-2 bg-slate-100 rounded-lg text-slate-700">
+                    <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-900">Университет</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/diploma.pdf')">
+                        <img src="images/diploma.pdf" alt="Диплом" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Специалитет НИЯУ МИФИ</h3>
+                        <p class="text-sm text-slate-600 flex-1">
+                            <strong>Специальность:</strong> Атомные станции: проектирование, эксплуатация и инжиниринг.</p>
+                        <p class="text-sm text-slate-600 flex-1"><strong>Квалификация:</strong> инженер-физик.</p> 
+                        
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/olymp.pdf')">
+                        <img src="images/olymp.pdf" alt="Диплом" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                        <div class="absolute top-3 left-3 bg-white/90 text-xs font-semibold px-3 py-1 rounded-lg shadow">
+                            Top 1
+                        </div>
+                    </div>
+                    
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Победитель Всероссийской студенческой олимпиды</h3>
+                        <p class="text-sm text-slate-600 flex-1">
+                            Олимпиада по автоматике, электронике, наноструктурной электронике.</p> 
+                        
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/rosatom/stip.pdf')">
+                        <img src="images/rosatom/stip.pdf" alt="Диплом" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                        <div class="absolute top-3 left-3 bg-white/90 text-xs font-semibold px-3 py-1 rounded-lg shadow">
+                            Top 1
+                        </div>
+                    </div>
+                    
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Победитель конкурса стипендий</h3>
+                        <p class="text-sm text-slate-600 flex-1">
+                            АО "Концерн Росэнергоатом"</p> 
+                        <p class="text-sm text-slate-600 flex-1">
+                            По совокупности показателей среди студентов за учебный год.</p> 
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- СЕКЦИЯ: СТУДЕНЧЕСКИЕ ОТРЯДЫ -->
+        <section id="rso" class="scroll-mt-20">
+            <div class="flex items-center gap-3 mb-8 border-b border-slate-200 pb-4">
+                <div class="p-2 bg-slate-100 rounded-lg text-slate-700">
+                    <i data-lucide="tent" class="w-6 h-6"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-900">Студенческие отряды (РСО)</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group"
+                        onclick="openModal('images/rosatom/dir.pdf')">
+
+                        <img src="images/rosatom/dir.pdf" alt="ВСС Мирный атом – ЛАЭС 2019" class="w-full h-full object-cover">
+
+                        <div class="absolute top-3 right-3 bg-slate-900 text-white text-xs px-2 py-1 rounded">
+                            Leadership
+                        </div>
+
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    </div>
+
+                    <div class="p-5 flex flex-col flex-1">
+
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">
+                            Командир Всероссийской стройки "Мирный атом ЛАЭС"
+                        </h3>
+
+                        <p class="text-sm text-slate-600 mb-3 flex-1">
+                            Организация работы студенческих строительных отрядов и координация производственной деятельности на объекте Ленинградской АЭС.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Project Management</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Team Leadership</span>
+                        </div>
+
+                        <div class="mb-4 mt-auto">
+                            <button onclick="toggleDetails(this,'laes-details')"
+                                    class="text-sm font-medium text-brand-600 hover:text-brand-800 flex items-center">
+                                Подробнее
+                                <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                            </button>
+
+                            <div id="laes-details"
+                                class="hidden mt-3 text-sm text-slate-600 border-t border-slate-100 pt-3 space-y-2">
+
+                                <p><strong>Масштаб проекта:</strong> организация работы 320 студентов на строительных объектах Ленинградской АЭС.</p>
+
+                                <p><strong>Задачи:</strong> оперативное руководство студенческими отрядами, координация производственной и внепроизводственной деятельности, контроль выполнения работ и соблюдения требований охраны труда.</p>
+
+                                <p><strong>Взаимодействие:</strong> с работодателями АО «Концерн ТИТАН-2», ГК «Росатом», органами власти, СМИ и Центральным штабом РСО.</p>
+
+                                <p><strong>Отчетность:</strong> подготовка и защита итогового отчета по результатам трудового проекта.</p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/rosatom/Znak_rso.png')">
+                        <img src="images/rosatom/Znak_rso.png" alt="Диплом" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Почетный знак</h3>
+                        <p class="text-sm text-slate-600 flex-1">
+                            За активную работу в студенческих отрядах.</p> 
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/har.pdf')">
+                        <img src="images/har.pdf" alt="Диплом" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Характеристика</h3>
+                        <p class="text-sm text-slate-600 flex-1">
+                            Характеристика на работу в качестве руководителя штаба стройки "Мирный атом ЛАЭС"</p> 
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+
+        <!-- СЕКЦИЯ: ШКОЛА -->
+        <section id="school" class="scroll-mt-20">
+            <div class="flex items-center gap-3 mb-8 border-b border-slate-200 pb-4">
+                <div class="p-2 bg-slate-100 rounded-lg text-slate-700">
+                    <i data-lucide="book-open" class="w-6 h-6"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-900">Школа</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('')">
+                        <img src="" alt="" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Призер олимпиады по математике</h3>
+                        <p class="text-sm text-slate-600 flex-1">
+                            Олимпиада НИУ МЭИ</p> 
+                        <p class="text-sm text-slate-600 flex-1">
+                            С правом получения 100 баллов ЕГЭ при поступлении.</p> 
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/baum.pdf')">
+                        <img src="images/baum.pdf" alt="Диплом" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Призер олимпиады по физике</h3>
+                        <p class="text-sm text-slate-600 flex-1">
+                            Олимпиада МГТУ им. Баумана "Шаг в Будущее"</p> 
+                        <p class="text-sm text-slate-600 flex-1">
+                            С правом поступления без вступительных испытаний.</p> 
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/chess.pdf')">
+                        <img src="images/chess.pdf" alt="Диплом" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Шахматы</h3>
+                        <p class="text-sm text-slate-600 flex-1">
+                            Первый разряд</p> 
+                        <p class="text-sm text-slate-600 flex-1">
+                            Победитель региональных соревнований</p> 
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Подвал -->
+    <footer class="bg-white border-t border-slate-200 mt-12 py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center text-sm text-slate-500">
+            <p>© 2026. Разработано для демонстрации портфолио.</p>
+        </div>
+    </footer>
+
+    <!-- Модальное окно для просмотра изображений -->
+    <div id="imageModal" class="modal-inactive fixed inset-0 z-50 flex items-center justify-center bg-slate-900/90 backdrop-blur-sm p-4 sm:p-6" onclick="closeModal()">
+        <!-- Кнопка закрытия -->
+        <button class="absolute top-4 right-4 text-white/70 hover:text-white transition-colors" onclick="closeModal()">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        
+        <!-- Контейнер изображения (остановка всплытия клика, чтобы не закрывалось при клике на саму картинку) -->
+        <div class="relative max-w-5xl max-h-full w-full h-full flex items-center justify-center">
+            <img id="modalImage" src="" alt="Скан документа полноэкранный" class="max-w-full max-h-[90vh] object-contain rounded-md shadow-2xl">
+        </div>
+    </div>
+
+    <!-- Скрипты -->
+    <script>
+        // Инициализация иконок Lucide
+        lucide.createIcons();
+
+        // Логика модального окна
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+
+        function openModal(imageSrc) {
+            modalImg.src = imageSrc;
+            modal.classList.remove('modal-inactive');
+            modal.classList.add('modal-active');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeModal() {
+            modal.classList.remove('modal-active');
+            modal.classList.add('modal-inactive');
+            document.body.classList.remove('modal-open');
+            // Очистка src после анимации закрытия (опционально)
+            setTimeout(() => { modalImg.src = ''; }, 200);
+        }
+
+        // Логика раскрывающегося описания "Подробнее"
+        function toggleDetails(btnElement, detailsId) {
+            const detailsDiv = document.getElementById(detailsId);
+            const icon = btnElement.querySelector('[data-lucide="chevron-down"]');
+            
+            if (detailsDiv.classList.contains('hidden')) {
+                detailsDiv.classList.remove('hidden');
+                if (icon) icon.classList.add('rotate-180');
+            } else {
+                detailsDiv.classList.add('hidden');
+                if (icon) icon.classList.remove('rotate-180');
+            }
+        }
+        // Закрытие по Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape" && modal.classList.contains('modal-active')) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
