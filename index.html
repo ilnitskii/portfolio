@@ -123,6 +123,69 @@
         
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         
+                <!-- GA4 PRODUCT ANALYTICS -->
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group"
+                        onclick="openModal('images/ga4-ecommerce.png')">
+
+                        <img src="images/ga4-ecommerce.png" alt="Кейс продуктовой аналитики Google Merchandise Store" class="w-full h-full object-cover">
+
+                        <div class="absolute top-3 right-3 bg-slate-900 text-white text-xs px-2 py-1 rounded">
+                            Product Analytics
+                        </div>
+
+                        <div
+                            class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in"
+                                class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    </div>
+
+                    <div class="p-5 flex-1 flex flex-col">
+
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">
+                            Product Analytics: Google Merchandise Store
+                        </h3>
+
+                        <p class="text-sm text-slate-600 mb-3 flex-1">
+                            Полный цикл продуктового анализа ecommerce-логов GA4: от подготовки витрин и исследования воронки до продуктовых гипотез и дизайна A/B-тестов.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">GA4</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Product Analytics</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">DataLens</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">A/B Tests</span>
+                        </div>
+
+                        <div class="mb-4 mt-auto">
+                            <button onclick="toggleDetails(this,'ds-details-ga4')"
+                                class="text-sm font-medium text-brand-600 hover:text-brand-800 flex items-center">
+                                Подробнее
+                                <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                            </button>
+
+                            <div id="ds-details-ga4"
+                                class="hidden mt-3 text-sm text-slate-600 border-t border-slate-100 pt-3 space-y-2">
+
+                                <p><strong>Данные:</strong> 79 421 пользователь и около 1,47 млн GA4-событий</p>
+                                <p><strong>Результат:</strong> аналитические витрины, dashboard, продуктовые инсайты и четыре дизайна A/B-тестов</p>
+                                <p><strong>KPI:</strong> 1 770 заказов, оборот $124 839, сквозная user conversion 1,89%</p>
+
+                            </div>
+                        </div>
+
+                        <a href="https://github.com/ilnitskii/ga4_obfuscated_sample_ecommerce" target="_blank"
+                            class="text-sm font-medium text-slate-900 hover:text-brand-600 flex items-center mt-2">
+                            GitHub Repository
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+
+                    </div>
+                </div>
+
         
                 <!-- OZON RECSYS -->
                 <div
@@ -430,66 +493,6 @@
         
                     </div>
                 </div>
-                <!-- CHURN ANALYSIS -->
-                <div
-                    class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
-        
-                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/dep.png')">
-        
-                        <img src="images/dep.png" class="w-full h-full object-cover">
-        
-                        <div class="absolute top-3 right-3 bg-slate-900 text-white text-xs px-2 py-1 rounded">
-                            Analytics
-                        </div>
-        
-                        <div
-                            class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 flex items-center justify-center">
-                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8"></i>
-                        </div>
-                    </div>
-        
-                    <div class="p-5 flex flex-col flex-1">
-
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">
-                            Telecom Customer Churn Analysis
-                        </h3>
-
-                        <p class="text-sm text-slate-600 mb-3 flex-1">
-                            Аналитический проект по прогнозированию оттока клиентов телеком-оператора 
-                            и разработке экономически обоснованной стратегии удержания.
-                        </p>
-
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Python</span>
-                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">EDA</span>
-                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">CatBoost</span>
-                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">SHAP</span>
-                        </div>
-
-                        <div class="mb-4 mt-auto">
-                            <button onclick="toggleDetails(this,'ds-details-churn')"
-                                class="text-sm font-medium text-brand-600 hover:text-brand-800 flex items-center">
-                                Подробнее
-                                <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
-                            </button>
-
-                            <div id="ds-details-churn"
-                                class="hidden mt-3 text-sm text-slate-600 border-t border-slate-100 pt-3 space-y-2">
-
-                                <p><strong>Анализ данных:</strong> выявлены ключевые драйверы оттока — высокий риск в первые 1–3 месяца, контракты month-to-month и пользователи Fiber Optic.</p>
-
-                                <p><strong>Моделирование:</strong> обучена модель CatBoost для прогнозирования вероятности оттока. Метрика качества ROC-AUC = 0.84.</p>
-
-                                <p><strong>Бизнес-решение:</strong> рассчитан оптимальный порог вероятности для запуска retention-кампании и предложена стратегия удержания клиентов.</p>
-
-                            </div>
-                    </div>   
-                    <a href="https://github.com/ilnitskii/churn_analysis/" target="_blank"
-                            class="text-sm font-medium text-slate-900 hover:text-brand-600 flex items-center mt-2">
-                            GitHub Repository
-                            <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
-                    </a>     
-                </div>
             </div>
         </section>
         <!-- Сертификаты -->
@@ -502,6 +505,26 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/cert/SHAR-Ilnitskii.png')">
+                        <img src="images/cert/SHAR-Ilnitskii.png" alt="Сертификат Школы аналитиков-разработчиков Яндекса" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Школа аналитиков-разработчиков Яндекса</h3>
+                        <p class="text-sm text-slate-600 mb-4 flex-1">
+                            Курс теоретических и практических занятий с защитой выпускного проекта.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Аналитика</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Разработка</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Проект</span>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
                     <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/cert/DLS.png')">
@@ -522,6 +545,46 @@
                             <span class="text-xs bg-slate-100 px-2 py-1 rounded">CNN</span>
                             <span class="text-xs bg-slate-100 px-2 py-1 rounded">GAN</span>
                             <span class="text-xs bg-slate-100 px-2 py-1 rounded">CV</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/cert/DLS-3-semester.png')">
+                        <img src="images/cert/DLS-3-semester.png" alt="Диплом Deep Learning School по обработке звука и речи" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Deep Learning School: Speech</h3>
+                        <p class="text-sm text-slate-600 mb-4 flex-1">
+                            Диплом II степени за курс по современным методам обработки звука и речи с использованием машинного обучения.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Speech</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Audio ML</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Deep Learning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/cert/diploma-ru.png')">
+                        <img src="images/cert/diploma-ru.png" alt="Диплом Deep Learning School по нейронным сетям и обработке естественного языка" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Deep Learning School: часть II</h3>
+                        <p class="text-sm text-slate-600 mb-4 flex-1">
+                            Диплом III степени за курс по нейронным сетям и обработке естественного языка.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">NLP</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Neural Networks</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">PyTorch</span>
                         </div>
                     </div>
                 </div>
@@ -570,6 +633,27 @@
                 </div>
 
                 <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/bus.png')">
+                        <img src="images/bus.png" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
+                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Инженерная бизнес-школа НИЯУ МИФИ</h3>
+                        <p class="text-sm text-slate-600 mb-4 flex-1">
+                            Программа по экономике, финансам и анализу бизнес-процессов
+                            при поддержке компаний Deloitte, Bain & Company и EY.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Финансы</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Экономика бизнеса</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Управление проектами</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
                     <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/cert/CodeRun.png')">
                         <img src="images/cert/CodeRun.png" class="w-full h-full object-cover">
                         <div class="absolute top-3 left-3 bg-white/90 text-xs font-semibold px-3 py-1 rounded-lg shadow">
@@ -605,27 +689,6 @@
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="text-xs bg-slate-100 px-2 py-1 rounded">Gymnasium</span>
                             <span class="text-xs bg-slate-100 px-2 py-1 rounded">Numpy</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
-                    <div class="relative h-48 bg-slate-100 cursor-pointer group" onclick="openModal('images/bus.png')">
-                        <img src="images/bus.png" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
-                            <i data-lucide="zoom-in" class="text-white opacity-0 group-hover:opacity-100 w-8 h-8 transition-opacity"></i>
-                        </div>
-                    </div>
-                    <div class="p-5 flex-1 flex flex-col">
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">Инженерная бизнес-школа НИЯУ МИФИ</h3>
-                        <p class="text-sm text-slate-600 mb-4 flex-1">
-                            Программа по экономике, финансам и анализу бизнес-процессов 
-                            при поддержке компаний Deloitte, Bain & Company и EY.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Финансы</span>
-                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Экономика бизнеса</span>
-                            <span class="text-xs bg-slate-100 px-2 py-1 rounded">Управление проектами</span>
                         </div>
                     </div>
                 </div>
